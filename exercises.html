@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise Library — HipRecover</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="page-wrap">
+
+  <nav class="site-nav">
+    <a href="index.html" class="logo">Hip<span>Recover</span></a>
+    <div class="nav-links">
+      <a href="checklist.html">Pre-surgery</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="exercises.html" class="active">Exercises</a>
+      <a href="tracker.html">My progress</a>
+    </div>
+    <a href="index.html" class="nav-cta">← Home</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="tag">Exercise Library</div>
+    <h1>Exercises for every phase</h1>
+    <p>Browse exercises by recovery phase. Click any card to expand step-by-step instructions. Always consult your physical therapist before starting a new exercise.</p>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterPhase('all',this)">All phases</button>
+    <button class="filter-btn" onclick="filterPhase('pre',this)">Phase 1 — Pre-surgery</button>
+    <button class="filter-btn" onclick="filterPhase('hosp',this)">Phase 2 — Hospital</button>
+    <button class="filter-btn" onclick="filterPhase('early',this)">Phase 3 — Early recovery</button>
+    <button class="filter-btn" onclick="filterPhase('rehab',this)">Phase 4 — Active rehab</button>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase-section" data-phase="pre">
+    <div class="ph-head" style="margin-top:2rem;">
+      <span class="ph-badge">Phase 1</span>
+      <span class="ph-title">Pre-surgery prehabilitation</span>
+      <span class="ph-sub">2–4 weeks before surgery</span>
+    </div>
+    <div class="ex-grid">
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="48" width="56" height="5" rx="2.5" fill="#9FE1CB"/><rect x="16" y="36" width="40" height="12" rx="6" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><circle cx="36" cy="26" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M24 36 Q24 30 36 30 Q48 30 48 36" stroke="#5DCAA5" stroke-width="1.5" fill="none"/><path d="M16 48 L20 42 M56 48 L52 42" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="diff easy">Easy</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Quad sets</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>In bed</span></div>
+          <div class="ex-desc">Strengthens the quadriceps without stressing the hip joint.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Lie flat on your back with legs straight.</p></div>
+            <div class="step"><div class="sn">2</div><p>Tighten the muscles on top of your thigh by pressing the back of your knee into the bed.</p></div>
+            <div class="step"><div class="sn">3</div><p>Hold for 5 seconds, then relax fully.</p></div>
+            <div class="step"><div class="sn">4</div><p>Repeat 10 times on each leg. Rest 1 minute between sets.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="50" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="22" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 30 L24 50 M44 30 L48 50" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M32 50 L36 36 L40 50" stroke="#5DCAA5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="diff easy">Easy</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Straight leg raise</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>In bed</span></div>
+          <div class="ex-desc">Builds hip flexor and quad strength before surgery.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Lie on your back. Bend one knee with foot flat, keep the other leg straight.</p></div>
+            <div class="step"><div class="sn">2</div><p>Tighten the quad of the straight leg, then raise it to the height of the bent knee.</p></div>
+            <div class="step"><div class="sn">3</div><p>Hold 2 seconds at the top, then lower slowly.</p></div>
+            <div class="step"><div class="sn">4</div><p>Complete 10 reps per side per set.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="50" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="20" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 28 L22 50 M44 28 L50 50" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M22 50 L29 38 L36 43 L43 34 L50 50" stroke="#FAC775" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="diff mod">Moderate</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Mini squats</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>Near wall</span></div>
+          <div class="ex-desc">Strengthens quads, glutes, and hip stabilizers using a wall for balance.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Stand with feet shoulder-width apart, lightly touching a wall for support.</p></div>
+            <div class="step"><div class="sn">2</div><p>Slowly bend your knees to about 30°, keeping your back straight.</p></div>
+            <div class="step"><div class="sn">3</div><p>Hold 2 seconds, then straighten back up slowly.</p></div>
+            <div class="step"><div class="sn">4</div><p>Stop if you feel hip pain. Do not squat past 90°.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="50" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="20" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 28 L24 50 M44 28 L48 50" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M24 42 Q36 34 48 42" stroke="#5DCAA5" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          <span class="diff easy">Easy</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Glute squeezes</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>Lying down</span></div>
+          <div class="ex-desc">Activates the gluteal muscles and improves pelvic stability.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Lie on your back with knees bent and feet flat on the floor.</p></div>
+            <div class="step"><div class="sn">2</div><p>Squeeze your buttock muscles together as tightly as comfortable.</p></div>
+            <div class="step"><div class="sn">3</div><p>Hold for 5 seconds, then release completely.</p></div>
+            <div class="step"><div class="sn">4</div><p>Repeat 10 times per set. Breathe normally throughout.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <!-- PHASE 2 -->
+  <div class="phase-section" data-phase="hosp">
+    <div class="ph-head">
+      <span class="ph-badge">Phase 2</span>
+      <span class="ph-title">Hospital stay</span>
+      <span class="ph-sub">Days 1–3 post-surgery</span>
+    </div>
+    <div class="ex-grid">
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="50" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="20" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 28 L24 50 M44 28 L48 50" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M24 48 L30 44 M48 48 L42 44" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M30 44 Q36 40 42 44" stroke="#5DCAA5" stroke-width="1.5" fill="none"/></svg>
+          <span class="diff easy">Easy</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Ankle pumps</div>
+          <div class="ex-meta"><span>20 reps every hour</span><span>In bed</span></div>
+          <div class="ex-desc">Prevents blood clots and keeps circulation moving during bed rest.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Sit or lie with legs extended in front of you.</p></div>
+            <div class="step"><div class="sn">2</div><p>Pull your toes toward your shins (flex), then push them away (point).</p></div>
+            <div class="step"><div class="sn">3</div><p>One flex + one point = one rep. Move smoothly.</p></div>
+            <div class="step"><div class="sn">4</div><p>Do 20 reps every hour while awake, especially the first two weeks.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="50" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="24" cy="24" r="7" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M18 31 L14 50 M30 31 L28 50" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M32 44 L40 28 L48 44" stroke="#5DCAA5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="20" r="7" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/></svg>
+          <span class="diff easy">Easy</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Heel slides</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>In bed</span></div>
+          <div class="ex-desc">Gently restores hip and knee flexion range of motion.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Lie on your back with both legs straight.</p></div>
+            <div class="step"><div class="sn">2</div><p>Slowly slide the heel of your operated leg toward your buttock by bending the knee.</p></div>
+            <div class="step"><div class="sn">3</div><p>Go as far as comfortable — do not force. Hold 2 seconds.</p></div>
+            <div class="step"><div class="sn">4</div><p>Slowly straighten back to start. Repeat 10 times.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="52" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="18" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 26 L20 52 M44 26 L52 52" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M20 44 L36 36 L52 44" stroke="#5DCAA5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="diff easy">Easy</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Sitting to standing</div>
+          <div class="ex-meta"><span>5–10 reps × 2 sets</span><span>With walker</span></div>
+          <div class="ex-desc">Rebuilds the functional movement pattern needed for daily life.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Sit at the front edge of a firm chair, feet flat, walker in front.</p></div>
+            <div class="step"><div class="sn">2</div><p>"Nose over toes" — lean forward and push through the armrests to stand.</p></div>
+            <div class="step"><div class="sn">3</div><p>Grip the walker once standing. Balance for 5 seconds before moving.</p></div>
+            <div class="step"><div class="sn">4</div><p>Reverse slowly to sit: back up until you feel the chair, then lower gradually.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="52" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="16" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 24 L22 52 M44 24 L50 52" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><line x1="36" y1="34" x2="36" y2="52" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 3"/><path d="M28 44 L36 38 L44 44" stroke="#FAC775" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          <span class="diff easy">Easy</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Short walks with walker</div>
+          <div class="ex-meta"><span>2–3× daily</span><span>Hospital corridor</span></div>
+          <div class="ex-desc">Restores weight-bearing confidence and prevents post-surgical complications.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Have a nurse or PT present for your first few attempts.</p></div>
+            <div class="step"><div class="sn">2</div><p>Advance the walker, then step your operated leg forward. Follow with the other leg.</p></div>
+            <div class="step"><div class="sn">3</div><p>Walk at a slow, steady pace. Look ahead, not down.</p></div>
+            <div class="step"><div class="sn">4</div><p>Start with 50 feet and increase distance as comfort allows.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <!-- PHASE 3 -->
+  <div class="phase-section" data-phase="early">
+    <div class="ph-head">
+      <span class="ph-badge">Phase 3</span>
+      <span class="ph-title">Early recovery at home</span>
+      <span class="ph-sub">Weeks 1–6 post-surgery</span>
+    </div>
+    <div class="ex-grid">
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="52" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="20" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 28 L24 52 M44 28 L48 52" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M24 46 L36 38 L48 46" stroke="#5DCAA5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 38 L36 28" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span class="diff easy">Easy</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Standing hip abduction</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>Near wall</span></div>
+          <div class="ex-desc">Strengthens hip abductors — essential for walking stability.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Stand upright holding a wall or chair. Keep your back straight.</p></div>
+            <div class="step"><div class="sn">2</div><p>Slowly lift your operated leg out to the side, toes forward.</p></div>
+            <div class="step"><div class="sn">3</div><p>Lift to hip height only — do not lean sideways.</p></div>
+            <div class="step"><div class="sn">4</div><p>Hold 2 seconds, lower slowly. 10 reps per side.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="52" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="18" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 26 L26 52 M44 26 L46 52" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M26 44 L36 34 L46 44" stroke="#FAC775" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="diff mod">Moderate</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Seated knee extension</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>Firm chair</span></div>
+          <div class="ex-desc">Rebuilds quadriceps strength while seated safely in a chair.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Sit upright in a firm chair with feet flat on the floor.</p></div>
+            <div class="step"><div class="sn">2</div><p>Slowly straighten your operated knee until your leg is horizontal.</p></div>
+            <div class="step"><div class="sn">3</div><p>Hold 2–3 seconds, feeling the quad engage.</p></div>
+            <div class="step"><div class="sn">4</div><p>Lower slowly — do not let the foot drop. 10 reps per set.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="52" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="18" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 26 L22 52 M44 26 L50 52" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M22 52 L28 40 M50 52 L44 40" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M28 40 L36 30 L44 40" stroke="#5DCAA5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="diff mod">Moderate</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Hip marching (seated)</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>Firm chair</span></div>
+          <div class="ex-desc">Improves hip flexor strength and coordination for walking.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Sit tall in a firm chair with both feet flat on the floor.</p></div>
+            <div class="step"><div class="sn">2</div><p>Lift the knee of your operated leg as high as comfortable — aim for 90°.</p></div>
+            <div class="step"><div class="sn">3</div><p>Hold 2 seconds, then lower under control. Do not lean back.</p></div>
+            <div class="step"><div class="sn">4</div><p>Alternate legs. 10 reps each side = 1 set.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="52" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="16" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 24 L20 52 M44 24 L52 52" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><ellipse cx="36" cy="44" rx="10" ry="6" fill="none" stroke="#FAC775" stroke-width="1.5"/></svg>
+          <span class="diff mod">Moderate</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Standing hip extension</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>Near wall</span></div>
+          <div class="ex-desc">Strengthens the gluteus maximus and hip extensors for walking power.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Stand facing a wall, hands lightly resting on it for balance.</p></div>
+            <div class="step"><div class="sn">2</div><p>Slowly swing your operated leg straight back behind you.</p></div>
+            <div class="step"><div class="sn">3</div><p>Move from the hip — do not arch your lower back.</p></div>
+            <div class="step"><div class="sn">4</div><p>Hold 2 seconds at the back, return slowly. 10 reps per side.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="divider">
+
+  <!-- PHASE 4 -->
+  <div class="phase-section" data-phase="rehab">
+    <div class="ph-head">
+      <span class="ph-badge">Phase 4</span>
+      <span class="ph-title">Active rehabilitation</span>
+      <span class="ph-sub">Weeks 6–12 post-surgery</span>
+    </div>
+    <div class="ex-grid">
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="54" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="16" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 24 L22 54 M44 24 L50 54" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M22 54 L30 42 M50 54 L42 42" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M30 42 L36 30 L42 42" stroke="#FAC775" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="diff mod">Moderate</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Step-ups</div>
+          <div class="ex-meta"><span>10 reps × 3 sets</span><span>Bottom stair</span></div>
+          <div class="ex-desc">Builds functional leg strength for climbing stairs confidently.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Stand at the bottom of a step, holding the railing for support.</p></div>
+            <div class="step"><div class="sn">2</div><p>Lead with your non-operated leg. Step up, then bring the operated leg to join.</p></div>
+            <div class="step"><div class="sn">3</div><p>Step back down leading with the operated leg.</p></div>
+            <div class="step"><div class="sn">4</div><p>"Up with the good, down with the bad." 10 full cycles = 1 set.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="56" rx="24" ry="4" fill="#9FE1CB"/><circle cx="36" cy="16" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 24 L22 52 M44 24 L50 52" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M22 52 L30 40 L36 52 L42 40 L50 52" stroke="#FAC775" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="diff hard">Challenging</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Stationary bike</div>
+          <div class="ex-meta"><span>10–20 min</span><span>Gym or home</span></div>
+          <div class="ex-desc">Low-impact cardio that improves range of motion and endurance.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Set the seat high so your hip only bends slightly at the top of the pedal stroke.</p></div>
+            <div class="step"><div class="sn">2</div><p>Use minimal resistance for the first two weeks. Focus on smooth pedaling.</p></div>
+            <div class="step"><div class="sn">3</div><p>Start with 10 minutes and build to 20 minutes over 2–3 weeks.</p></div>
+            <div class="step"><div class="sn">4</div><p>Stop if you feel groin or hip pain. Increase resistance gradually.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="52" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="16" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 24 L22 52 M44 24 L50 52" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M22 52 L36 36 L50 52" stroke="#5DCAA5" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 36 L30 26 M36 36 L42 26" stroke="#5DCAA5" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          <span class="diff mod">Moderate</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Side-lying clamshells</div>
+          <div class="ex-meta"><span>15 reps × 3 sets</span><span>Floor or bed</span></div>
+          <div class="ex-desc">Targets hip external rotators and glute medius for deep stability.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Lie on your non-operated side with hips stacked, knees bent to 45°.</p></div>
+            <div class="step"><div class="sn">2</div><p>Keeping feet together, rotate your top knee upward like a clamshell opening.</p></div>
+            <div class="step"><div class="sn">3</div><p>Raise as high as possible without rolling your pelvis backward.</p></div>
+            <div class="step"><div class="sn">4</div><p>Hold 2 seconds at the top, lower slowly. 15 reps per side.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+      <div class="ex-card" onclick="toggleEx(this)">
+        <div class="ex-illus">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><rect x="8" y="54" width="56" height="5" rx="2.5" fill="#9FE1CB"/><circle cx="36" cy="16" r="8" fill="#E1F5EE" stroke="#5DCAA5" stroke-width="1"/><path d="M28 24 L22 54 M44 24 L50 54" stroke="#5DCAA5" stroke-width="1.5" stroke-linecap="round"/><path d="M22 42 L36 30 L50 42 L50 54 L22 54 Z" fill="#E1F5EE" stroke="#FAC775" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span class="diff hard">Challenging</span>
+        </div>
+        <div class="ex-body">
+          <div class="ex-name">Partial lunges</div>
+          <div class="ex-meta"><span>8 reps × 3 sets</span><span>Near wall</span></div>
+          <div class="ex-desc">Rebuilds strength, balance, and hip mobility for functional movement.</div>
+          <div class="ex-steps">
+            <div class="steps-lbl">How to do it</div>
+            <div class="step"><div class="sn">1</div><p>Stand near a wall for support. Step your non-operated leg forward.</p></div>
+            <div class="step"><div class="sn">2</div><p>Slowly lower your body by bending both knees — go as deep as comfortable.</p></div>
+            <div class="step"><div class="sn">3</div><p>Keep your front knee over your ankle and your torso upright.</p></div>
+            <div class="step"><div class="sn">4</div><p>Push back up to standing. 8 reps per side per set.</p></div>
+          </div>
+          <span class="ex-tog">Show instructions ↓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box" style="margin-top:2rem;">
+    <div class="info-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#085041" stroke-width="1.5"/><path d="M8 7v4M8 5.5v.5" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <h4>Important safety note</h4>
+      <p>Hip precautions vary by surgical approach (posterior vs. anterior). Always confirm with your surgeon and physical therapist which movements to avoid. Stop any exercise that causes sharp pain, increased swelling, or a clicking sensation in the hip joint.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <a href="index.html" class="logo">Hip<span>Recover</span></a>
+    <p class="footer-note">General educational information only. Always follow the guidance of your orthopedic surgeon and physical therapist.</p>
+  </footer>
+
+</div>
+<script>
+function toggleEx(card) {
+  const isOpen = card.classList.toggle('open');
+  card.querySelector('.ex-tog').textContent = isOpen ? 'Hide instructions ↑' : 'Show instructions ↓';
+}
+function filterPhase(phase, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.phase-section, .divider').forEach(el => {
+    if (phase === 'all') { el.style.display = ''; return; }
+    if (el.classList.contains('phase-section')) {
+      el.style.display = el.dataset.phase === phase ? '' : 'none';
+    } else { el.style.display = 'none'; }
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Tracker — HipRecover</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="page-wrap">
+
+  <nav class="site-nav">
+    <a href="index.html" class="logo">Hip<span>Recover</span></a>
+    <div class="nav-links">
+      <a href="checklist.html">Pre-surgery</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="exercises.html">Exercises</a>
+      <a href="tracker.html" class="active">My progress</a>
+    </div>
+    <a href="index.html" class="nav-cta">← Home</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="tag">Progress Tracker</div>
+    <h1>Track your recovery</h1>
+    <p>Log your daily pain level, walking distance, and milestones. Your data is saved in your browser so it persists between visits.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stat-cards-row">
+    <div class="stat-tile"><div class="lbl">Entries logged</div><div class="val" id="st-entries">0</div><div class="sub">days tracked</div></div>
+    <div class="stat-tile"><div class="lbl">Latest pain score</div><div class="val" id="st-pain">—</div><div class="sub">out of 10</div></div>
+    <div class="stat-tile"><div class="lbl">Latest walking</div><div class="val" id="st-walk">—</div><div class="sub">minutes</div></div>
+    <div class="stat-tile"><div class="lbl">Milestones hit</div><div class="val" id="st-ms">0</div><div class="sub">total achieved</div></div>
+  </div>
+
+  <!-- LOG FORM -->
+  <div class="section-heading">Log today's entry</div>
+  <div class="log-form">
+    <div class="form-row three">
+      <div class="field"><label>Date</label><input type="date" id="f-date"></div>
+      <div class="field"><label>Recovery week</label><input type="number" id="f-week" min="0" max="52" placeholder="e.g. 3"></div>
+      <div class="field"><label>Assistive device</label>
+        <select id="f-aid">
+          <option value="walker">Walker</option>
+          <option value="crutches">Crutches</option>
+          <option value="cane">Cane</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label>Pain level (0 = none, 10 = severe)</label>
+        <div class="slider-wrap">
+          <input type="range" id="f-pain" min="0" max="10" step="1" value="3" oninput="document.getElementById('pain-disp').textContent=this.value">
+          <span class="slider-val" id="pain-disp">3</span>
+        </div>
+      </div>
+      <div class="field">
+        <label>Walking time today (minutes)</label>
+        <div class="slider-wrap">
+          <input type="range" id="f-walk" min="0" max="120" step="5" value="10" oninput="document.getElementById('walk-disp').textContent=this.value">
+          <span class="slider-val" id="walk-disp">10</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="field">
+        <label>Hip flexion range (degrees)</label>
+        <div class="slider-wrap">
+          <input type="range" id="f-rom" min="0" max="120" step="5" value="60" oninput="document.getElementById('rom-disp').textContent=this.value+'°'">
+          <span class="slider-val" id="rom-disp">60°</span>
+        </div>
+      </div>
+      <div class="field">
+        <label>Sleep quality (1 = poor, 5 = excellent)</label>
+        <div class="slider-wrap">
+          <input type="range" id="f-sleep" min="1" max="5" step="1" value="3" oninput="document.getElementById('sleep-disp').textContent=this.value">
+          <span class="slider-val" id="sleep-disp">3</span>
+        </div>
+      </div>
+    </div>
+    <div class="field" style="margin-bottom:14px;">
+      <label>Milestones achieved today</label>
+      <div class="milestones-grid" id="ms-grid">
+        <div class="ms-item" onclick="toggleMs(this)" data-ms="First unassisted step"><div class="ms-cb"></div>First unassisted step</div>
+        <div class="ms-item" onclick="toggleMs(this)" data-ms="Slept through the night"><div class="ms-cb"></div>Slept through the night</div>
+        <div class="ms-item" onclick="toggleMs(this)" data-ms="Walked 5 mins unaided"><div class="ms-cb"></div>Walked 5 mins unaided</div>
+        <div class="ms-item" onclick="toggleMs(this)" data-ms="Climbed a flight of stairs"><div class="ms-cb"></div>Climbed a flight of stairs</div>
+        <div class="ms-item" onclick="toggleMs(this)" data-ms="Drove a car"><div class="ms-cb"></div>Drove a car</div>
+        <div class="ms-item" onclick="toggleMs(this)" data-ms="Returned to work"><div class="ms-cb"></div>Returned to work</div>
+        <div class="ms-item" onclick="toggleMs(this)" data-ms="Swam or cycled"><div class="ms-cb"></div>Swam or cycled</div>
+        <div class="ms-item" onclick="toggleMs(this)" data-ms="Walked 30+ mins"><div class="ms-cb"></div>Walked 30+ mins</div>
+        <div class="ms-item" onclick="toggleMs(this)" data-ms="Stopped pain medication"><div class="ms-cb"></div>Stopped pain medication</div>
+      </div>
+    </div>
+    <div class="field" style="margin-bottom:16px;">
+      <label>Notes (symptoms, concerns, how you feel)</label>
+      <textarea id="f-notes" placeholder="e.g. Swelling reduced today. Tried walking to the mailbox without the walker..."></textarea>
+    </div>
+    <div class="save-row">
+      <button class="save-btn" onclick="saveEntry()">Save entry</button>
+      <span class="save-msg" id="save-msg">✓ Entry saved</span>
+    </div>
+  </div>
+
+  <!-- CHARTS -->
+  <div class="section-heading" style="margin-top:2.5rem;">Trends</div>
+  <div class="chart-wrap">
+    <div class="chart-head">
+      <h3>Pain level &amp; sleep quality</h3>
+      <div class="chart-legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#1D9E75;"></div>Pain (0–10)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#378ADD;"></div>Sleep (1–5)</div>
+      </div>
+    </div>
+    <canvas id="chart-pain" height="160"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-head">
+      <h3>Walking time &amp; hip flexion</h3>
+      <div class="chart-legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#BA7517;"></div>Walk (mins)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#534AB7;"></div>Hip flexion (°)</div>
+      </div>
+    </div>
+    <canvas id="chart-walk" height="160"></canvas>
+  </div>
+
+  <!-- LOG TABLE -->
+  <div class="section-heading" style="margin-top:2rem;">Entry log</div>
+  <div id="empty-msg" class="empty-state">No entries yet — log your first day above.</div>
+  <div style="overflow-x:auto;">
+    <table class="log-table" id="log-table" style="display:none;">
+      <thead><tr>
+        <th>Date</th><th>Wk</th><th>Pain</th><th>Walk</th><th>ROM</th><th>Sleep</th><th>Aid</th><th>Milestones</th><th>Notes</th><th></th>
+      </tr></thead>
+      <tbody id="log-body"></tbody>
+    </table>
+  </div>
+
+  <div class="info-box" style="margin-top:2rem;">
+    <div class="info-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#085041" stroke-width="1.5"/><path d="M8 7v4M8 5.5v.5" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <h4>When to contact your care team</h4>
+      <p>Seek immediate advice if you notice sudden increased pain, swelling, redness or warmth around the hip, fever above 38°C (100.4°F), or a "popping" sensation. These may be signs of infection or dislocation.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <a href="index.html" class="logo">Hip<span>Recover</span></a>
+    <p class="footer-note">General educational information only. Always follow the guidance of your orthopedic surgeon and physical therapist.</p>
+  </footer>
+
+</div>
+<script>
+let entries = JSON.parse(localStorage.getItem('hiprecover_entries') || '[]');
+let chartPain, chartWalk;
+
+// Set today's date
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('f-date').value = today;
+
+function toggleMs(el) {
+  el.classList.toggle('checked');
+  const cb = el.querySelector('.ms-cb');
+  cb.innerHTML = el.classList.contains('checked')
+    ? '<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    : '';
+}
+
+function saveEntry() {
+  const date = document.getElementById('f-date').value;
+  if (!date) { alert('Please select a date.'); return; }
+  const entry = {
+    date,
+    week: document.getElementById('f-week').value || '—',
+    pain: parseInt(document.getElementById('f-pain').value),
+    walk: parseInt(document.getElementById('f-walk').value),
+    rom: parseInt(document.getElementById('f-rom').value),
+    sleep: parseInt(document.getElementById('f-sleep').value),
+    aid: document.getElementById('f-aid').value,
+    milestones: [...document.querySelectorAll('.ms-item.checked')].map(e => e.dataset.ms),
+    notes: document.getElementById('f-notes').value.trim()
+  };
+  const idx = entries.findIndex(e => e.date === date);
+  if (idx >= 0) entries[idx] = entry; else entries.push(entry);
+  entries.sort((a, b) => a.date < b.date ? -1 : 1);
+  localStorage.setItem('hiprecover_entries', JSON.stringify(entries));
+  // Reset form
+  document.querySelectorAll('.ms-item').forEach(el => { el.classList.remove('checked'); el.querySelector('.ms-cb').innerHTML = ''; });
+  document.getElementById('f-notes').value = '';
+  const msg = document.getElementById('save-msg');
+  msg.style.opacity = '1';
+  setTimeout(() => msg.style.opacity = '0', 2500);
+  render();
+}
+
+function deleteEntry(date) {
+  if (!confirm('Delete entry for ' + date + '?')) return;
+  entries = entries.filter(e => e.date !== date);
+  localStorage.setItem('hiprecover_entries', JSON.stringify(entries));
+  render();
+}
+
+function painClass(p) {
+  if (p <= 3) return 'pb-low';
+  if (p <= 5) return 'pb-mid';
+  if (p <= 7) return 'pb-high';
+  return 'pb-sev';
+}
+
+function render() {
+  const n = entries.length;
+  document.getElementById('st-entries').textContent = n;
+  if (n > 0) {
+    const last = entries[n - 1];
+    document.getElementById('st-pain').textContent = last.pain;
+    document.getElementById('st-walk').textContent = last.walk;
+    document.getElementById('st-ms').textContent = entries.reduce((a, e) => a + (e.milestones ? e.milestones.length : 0), 0);
+  }
+
+  // Table
+  const tbody = document.getElementById('log-body');
+  tbody.innerHTML = '';
+  [...entries].reverse().forEach(e => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${e.date}</td>
+      <td>${e.week}</td>
+      <td><span class="pain-badge ${painClass(e.pain)}">${e.pain}/10</span></td>
+      <td>${e.walk}m</td>
+      <td>${e.rom}°</td>
+      <td>${e.sleep}/5</td>
+      <td>${e.aid}</td>
+      <td style="max-width:140px;font-size:11px;color:#5f5f5f;">${e.milestones && e.milestones.length ? e.milestones.join(', ') : '—'}</td>
+      <td style="max-width:160px;font-size:11px;color:#5f5f5f;">${e.notes || '—'}</td>
+      <td><button class="del-btn" onclick="deleteEntry('${e.date}')">✕</button></td>`;
+    tbody.appendChild(tr);
+  });
+  document.getElementById('empty-msg').style.display = n ? 'none' : 'block';
+  document.getElementById('log-table').style.display = n ? 'table' : 'none';
+
+  // Charts
+  const labels = entries.map(e => e.date.slice(5));
+  const gridColor = 'rgba(0,0,0,0.06)';
+  const tickColor = '#999';
+  const baseOpts = {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: gridColor }, ticks: { font: { size: 11 }, color: tickColor } },
+      y: { grid: { color: gridColor }, ticks: { font: { size: 11 }, color: tickColor } }
+    }
+  };
+  if (chartPain) chartPain.destroy();
+  chartPain = new Chart(document.getElementById('chart-pain'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Pain', data: entries.map(e => e.pain), borderColor: '#1D9E75', backgroundColor: 'transparent', tension: 0.3, pointRadius: 4, pointBackgroundColor: '#1D9E75', borderWidth: 2 },
+        { label: 'Sleep', data: entries.map(e => e.sleep), borderColor: '#378ADD', backgroundColor: 'transparent', tension: 0.3, pointRadius: 4, pointBackgroundColor: '#378ADD', borderWidth: 2 }
+      ]
+    },
+    options: { ...baseOpts, scales: { ...baseOpts.scales, y: { ...baseOpts.scales.y, min: 0, max: 10, ticks: { stepSize: 2, font:{size:11}, color: tickColor } } } }
+  });
+  if (chartWalk) chartWalk.destroy();
+  chartWalk = new Chart(document.getElementById('chart-walk'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Walk', data: entries.map(e => e.walk), borderColor: '#BA7517', backgroundColor: 'transparent', tension: 0.3, pointRadius: 4, pointBackgroundColor: '#BA7517', borderWidth: 2 },
+        { label: 'ROM', data: entries.map(e => e.rom), borderColor: '#534AB7', backgroundColor: 'transparent', tension: 0.3, pointRadius: 4, pointBackgroundColor: '#534AB7', borderWidth: 2 }
+      ]
+    },
+    options: baseOpts
+  });
+}
+
+render();
+</script>
+</body>
+</html>

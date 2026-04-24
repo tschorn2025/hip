@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Surgery Checklist — HipRecover</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="page-wrap">
+
+  <nav class="site-nav">
+    <a href="index.html" class="logo">Hip<span>Recover</span></a>
+    <div class="nav-links">
+      <a href="checklist.html" class="active">Pre-surgery</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="exercises.html">Exercises</a>
+      <a href="tracker.html">My progress</a>
+    </div>
+    <a href="index.html" class="nav-cta">← Home</a>
+  </nav>
+
+  <div class="page-header">
+    <div class="tag">Pre-surgery checklist</div>
+    <h1>Get ready for your surgery</h1>
+    <p>Check off each item as you complete it. Items are grouped by how far in advance you should act. Your progress is tracked below.</p>
+    <div style="margin-top:1.25rem;">
+      <div class="progress-label">
+        <span>Overall progress</span>
+        <strong id="prog-text">0 of 30 completed</strong>
+      </div>
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-bar" style="width:0%"></div></div>
+    </div>
+    <button class="reset-btn" onclick="resetAll()">Reset all ↺</button>
+  </div>
+
+  <!-- MEDICAL -->
+  <div class="section" data-sec="medical" style="margin-top:2rem;">
+    <div class="section-head">
+      <div class="sec-icon sec-teal">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="7" y="2" width="2" height="12" rx="1" fill="#0F6E56"/><rect x="2" y="7" width="12" height="2" rx="1" fill="#0F6E56"/></svg>
+      </div>
+      <h2>Medical appointments</h2>
+      <span class="sec-count" id="cnt-medical">0/7</span>
+    </div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Attend pre-operative evaluation with your surgeon</div><div class="sub">Review x-rays, implant choice, and surgical plan. Bring a list of questions.</div></div><span class="timing-pill t4w">4 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Complete pre-op blood work and clearance tests</div><div class="sub">ECG, CBC, metabolic panel — your surgical team will specify what's needed.</div></div><span class="timing-pill t4w">4 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Get cardiac or specialist clearance if required</div><div class="sub">If you have a heart condition, diabetes, or other chronic illness.</div></div><span class="timing-pill t4w">4 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Attend pre-operative physical therapy session</div><div class="sub">Learn post-op exercises and mobility techniques before surgery.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Review all medications with your surgeon</div><div class="sub">Blood thinners, NSAIDs, and supplements may need to be paused before surgery.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Attend pre-admission nursing assessment</div><div class="sub">Anesthesia review, allergy confirmation, and consent forms.</div></div><span class="timing-pill t1w">1 week out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Complete any required dental work beforehand</div><div class="sub">Active dental infection can pose infection risk post-implant.</div></div><span class="timing-pill t4w">4 weeks out</span></div>
+  </div>
+
+  <!-- HOME -->
+  <div class="section" data-sec="home" style="margin-top:2rem;">
+    <div class="section-head">
+      <div class="sec-icon sec-amber">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L8 2L14 8V14H10V10H6V14H2V8Z" stroke="#854F0B" stroke-width="1.2" fill="none" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>Home preparation</h2>
+      <span class="sec-count" id="cnt-home">0/8</span>
+    </div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Arrange a raised toilet seat or grab bars in the bathroom</div><div class="sub">You won't be able to bend your hip past 90° initially.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Set up a recovery area on the ground floor if possible</div><div class="sub">Minimizes stair use during early recovery.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Remove trip hazards — loose rugs, cables, clutter</div><div class="sub">Falls are the most common post-op complication at home.</div></div><span class="timing-pill t1w">1 week out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Purchase a long-handled reacher, sock aid, and shoe horn</div><div class="sub">Essential tools for dressing independently without bending.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Secure a walker or crutches ahead of surgery</div><div class="sub">Check with your surgical team which aid they recommend.</div></div><span class="timing-pill t1w">1 week out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Prepare and freeze meals for the first two weeks</div><div class="sub">Standing to cook will be limited early in recovery.</div></div><span class="timing-pill t1w">1 week out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Install a stable handrail on your main staircase if not present</div><div class="sub">You'll need to hold the rail on every stair trip initially.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Set up phone charger, remote controls, and essentials at seat height</div><div class="sub">Avoid repeated bending down to pick things up.</div></div><span class="timing-pill t1w">1 week out</span></div>
+  </div>
+
+  <!-- LOGISTICS -->
+  <div class="section" data-sec="logistics" style="margin-top:2rem;">
+    <div class="section-head">
+      <div class="sec-icon sec-blue">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#185FA5" stroke-width="1.2" fill="none"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1" stroke="#185FA5" stroke-width="1.2"/><path d="M2 8h12" stroke="#185FA5" stroke-width="1.2"/></svg>
+      </div>
+      <h2>Logistics and support</h2>
+      <span class="sec-count" id="cnt-logistics">0/6</span>
+    </div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Arrange a responsible adult to drive you home after surgery</div><div class="sub">You cannot drive after general or spinal anesthesia.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Arrange post-op care support for at least the first two weeks</div><div class="sub">A family member, friend, or professional carer to assist with meals, errands, and transport.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Notify your employer and arrange medical leave</div><div class="sub">Most desk workers return in 4–6 weeks; physical roles take longer.</div></div><span class="timing-pill t4w">4 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Arrange care for children or pets during hospital stay</div><div class="sub">You'll be in hospital 1–3 days and unable to lift or bend for several weeks after.</div></div><span class="timing-pill t1w">1 week out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Confirm your surgery time and hospital check-in details</div><div class="sub">Know where to go, what time to arrive, and who to contact.</div></div><span class="timing-pill t1w">1 week out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Book post-op physiotherapy appointments in advance</div><div class="sub">PT slots fill quickly — schedule at least 3 sessions for weeks 1–3.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
+  </div>
+
+  <!-- PACK -->
+  <div class="section" data-sec="pack" style="margin-top:2rem;">
+    <div class="section-head">
+      <div class="sec-icon sec-coral">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="5" width="10" height="9" rx="1" stroke="#993C1D" stroke-width="1.2" fill="none"/><path d="M6 5V4a2 2 0 014 0v1" stroke="#993C1D" stroke-width="1.2"/></svg>
+      </div>
+      <h2>What to pack for hospital</h2>
+      <span class="sec-count" id="cnt-pack">0/5</span>
+    </div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Loose, comfortable clothing and non-slip footwear</div><div class="sub">Shorts or wide-leg trousers are easiest post-surgery. Slip-on shoes only.</div></div><span class="timing-pill td">Day before</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Complete medication list and any regular prescriptions</div><div class="sub">Include dosages and the name of your prescribing doctor.</div></div><span class="timing-pill td">Day before</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Photo ID, insurance card, and hospital paperwork</div><div class="sub">Keep these in a single easy-to-find folder.</div></div><span class="timing-pill td">Day before</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Phone, charger, headphones, and comfort items</div><div class="sub">You'll likely be in hospital 1–3 nights.</div></div><span class="timing-pill td">Day before</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Toiletries, lip balm, and reading material</div><div class="sub">Hospitals can be dry and waiting times are long. Pack light — no valuables.</div></div><span class="timing-pill td">Day before</span></div>
+  </div>
+
+  <!-- BODY -->
+  <div class="section" data-sec="body" style="margin-top:2rem;">
+    <div class="section-head">
+      <div class="sec-icon sec-purple">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="2.5" stroke="#534AB7" stroke-width="1.2" fill="none"/><path d="M3 14c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#534AB7" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+      </div>
+      <h2>Physical preparation</h2>
+      <span class="sec-count" id="cnt-body">0/4</span>
+    </div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Begin prehabilitation exercises</div><div class="sub">Stronger muscles before surgery lead to faster recovery after. <a href="exercises.html">See the exercise library →</a></div></div><span class="timing-pill t4w">4 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Stop smoking at least 4 weeks before surgery</div><div class="sub">Smoking significantly increases risk of infection and slows bone healing.</div></div><span class="timing-pill t4w">4 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Follow any pre-op fasting instructions</div><div class="sub">Typically nothing to eat after midnight. Confirm exact instructions with your team.</div></div><span class="timing-pill td">Day before</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Shower with antiseptic wash the night before and morning of surgery</div><div class="sub">Reduces skin bacteria and infection risk at the incision site.</div></div><span class="timing-pill td">Day before</span></div>
+  </div>
+
+  <div class="info-box" style="margin-top:2.5rem;">
+    <div class="info-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2a4 4 0 100 8A4 4 0 008 2zM8 7v1M8 5.5v.5" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/><path d="M5 12.5c0-.83 1.34-1.5 3-1.5s3 .67 3 1.5" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <h4>Key questions to ask your surgeon</h4>
+      <p>Which surgical approach will you use — posterior or anterior? What hip precautions will I need? When can I drive, return to work, and resume sports? What are the signs of infection or dislocation to watch for?</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <a href="index.html" class="logo">Hip<span>Recover</span></a>
+    <p class="footer-note">General educational information only. Always follow the guidance of your orthopedic surgical team.</p>
+  </footer>
+
+</div>
+<script>
+const TOTAL = 30;
+const counts = {medical:7, home:8, logistics:6, pack:5, body:4};
+const done = {medical:0, home:0, logistics:0, pack:5-5, body:0};
+Object.keys(done).forEach(k => done[k] = 0);
+
+function getSec(item) { return item.closest('.section').dataset.sec; }
+
+function toggle(item) {
+  const isDone = item.classList.toggle('done-item');
+  const cb = item.querySelector('.cb');
+  cb.classList.toggle('done', isDone);
+  cb.innerHTML = isDone ? '<svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' : '';
+  const sec = getSec(item);
+  done[sec] += isDone ? 1 : -1;
+  updateProgress();
+  updateCount(sec);
+}
+
+function updateProgress() {
+  const total_done = Object.values(done).reduce((a,b) => a+b, 0);
+  const pct = Math.round(total_done / TOTAL * 100);
+  document.getElementById('prog-bar').style.width = pct + '%';
+  document.getElementById('prog-text').textContent = total_done + ' of ' + TOTAL + ' completed';
+}
+
+function updateCount(sec) {
+  document.getElementById('cnt-' + sec).textContent = done[sec] + '/' + counts[sec];
+}
+
+function resetAll() {
+  document.querySelectorAll('.check-item').forEach(i => {
+    i.classList.remove('done-item');
+    const cb = i.querySelector('.cb');
+    cb.classList.remove('done');
+    cb.innerHTML = '';
+  });
+  Object.keys(done).forEach(k => { done[k] = 0; updateCount(k); });
+  updateProgress();
+}
+</script>
+</body>
+</html>
