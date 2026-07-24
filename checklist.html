@@ -53,7 +53,7 @@
     <div style="margin-top:1.25rem;">
       <div class="progress-label">
         <span>Overall progress</span>
-        <strong id="prog-text">0 of 30 completed</strong>
+        <strong id="prog-text">0 of 31 completed</strong>
       </div>
       <div class="progress-bar-wrap"><div class="progress-bar-fill" id="prog-bar" style="width:0%"></div></div>
     </div>
@@ -152,10 +152,11 @@
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="2.5" stroke="#534AB7" stroke-width="1.2" fill="none"/><path d="M3 14c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#534AB7" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
       </div>
       <h2>Physical preparation</h2>
-      <span class="sec-count" id="cnt-body">0/4</span>
+      <span class="sec-count" id="cnt-body">0/5</span>
     </div>
     <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Begin prehabilitation exercises</div><div class="sub">Stronger muscles before surgery lead to faster recovery after. <a href="exercises.html">See the exercise library →</a></div></div><span class="timing-pill t4w">4 weeks out</span></div>
     <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Stop smoking at least 4 weeks before surgery</div><div class="sub">Smoking significantly increases risk of infection and slows bone healing.</div></div><span class="timing-pill t4w">4 weeks out</span></div>
+    <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Take iron pills as prescribed</div><div class="sub">Helps build healthy blood levels ahead of surgery. Follow your care team's dosage instructions.</div></div><span class="timing-pill t2w">2 weeks out</span></div>
     <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Follow any pre-op fasting instructions</div><div class="sub">Typically nothing to eat after midnight. Confirm exact instructions with your team.</div></div><span class="timing-pill td">Day before</span></div>
     <div class="check-item" onclick="toggle(this)"><div class="cb"></div><div class="check-text"><div class="label">Shower with antiseptic wash the night before and morning of surgery</div><div class="sub">Reduces skin bacteria and infection risk at the incision site.</div></div><span class="timing-pill td">Day before</span></div>
   </div>
@@ -177,8 +178,8 @@
 
 </div>
 <script>
-const TOTAL = 30;
-const counts = {medical:7, home:8, logistics:6, pack:5, body:4};
+const TOTAL = 31;
+const counts = {medical:7, home:8, logistics:6, pack:5, body:5};
 const done = {medical:0, home:0, logistics:0, pack:0, body:0};
 
 const STORAGE_KEY = 'hiprecover_checklist';
